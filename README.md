@@ -18,7 +18,8 @@ To install this application, you'll need [Node.js](https://nodejs.org/en/downloa
 
 ```bash
 $ git clone https://github.com/rjoydip/fastlib.git 
-$ cd fastlib && npm install
+$ cd fastlib
+$ npm install
 ```
 
 ## API

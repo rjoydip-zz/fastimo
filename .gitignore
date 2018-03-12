@@ -69,3 +69,5 @@ typings/
 
 # marko generated js
 *.marko.js
+
+build/
