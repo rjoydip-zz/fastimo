@@ -1,5 +1,5 @@
-const Logger = require('@core/logger')
+const Controller = require('@core/controller')
 
-const logger = new Logger()
+const controller = new Controller()
 
-logger.info('Hello world')
+controller.index()
