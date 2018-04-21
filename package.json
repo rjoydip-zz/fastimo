@@ -3,14 +3,38 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "morgan": "^1.8.0",
+    "resource-router-middleware": "^0.6.0"
+  },
   "devDependencies": {
+    "@core/controller": "file:core/controller",
     "@core/logger": "file:core/logger",
-    "@core/controller": "file:core/controller"
+    "dotenv": "^5.0.1",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
   },
   "scripts": {
     "start": "node_modules/.bin/nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
   },
   "keywords": [],
   "author": "",

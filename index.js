@@ -1,5 +1,10 @@
-const Controller = require('@core/controller')
+const Server = require("./src");
 
-const controller = new Controller()
-
-controller.index()
+// server instance
+const server = new Server();
+// server listining
+server.listen().then((response) => {
+    console.log(`Server is running ${response.host}:${response.port}`);
+}).catch((err) => {
+    console.log(err);
+});
