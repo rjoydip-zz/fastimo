@@ -3,6 +3,7 @@ class Config {
         Object.assign(this, {
             "port": 8080,
             "host": "127.0.0.1",
+            "apiPrefix": "api/v1",
             "bodyLimit": "100kb",
             "corsHeaders": ["Link"]
         });

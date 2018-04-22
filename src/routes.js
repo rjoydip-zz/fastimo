@@ -7,7 +7,7 @@ class Routes extends App {
 
     init(app) {
         app.use('/users', require('./modules/users').routes());
-        app.use('/api/users', require('./modules/users').api());
+        app.use(`/${this.config.apiPrefix}/users`, require('./modules/users').api());
     }
 }
 
