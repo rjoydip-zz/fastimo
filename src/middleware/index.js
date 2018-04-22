@@ -1,17 +1,23 @@
+const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const config = require('../config');
+class Middleware {
+	constructor() {
+		this.app = express();
+		this.config = require('../config');
+	}
 
-exports.external = Object.assign({}, morgan('dev'), cors({
-	exposedHeaders: config.corsHeaders
-}), bodyParser.json({
-	limit : config.bodyLimit
-}));
+	external() {
+		this.app.use(morgan('dev'));
+		this.app.use(cors({ exposedHeaders: this.config.corsHeaders }));
+		this.app.use(bodyParser.json({ limit : this.config.bodyLimit }))
+	}
 
-exports.default = () => {
-	return;
+	custom() {
+		
+	}
 }
 
-module.exports = exports;
+module.exports = new Middleware();

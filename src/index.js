@@ -1,6 +1,8 @@
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 
-const DB = require('./db');
+// const DB = require('./db');
 const middleware = require('./middleware');
 const config = require('./config');
 
@@ -10,21 +12,34 @@ class Server {
         this.port = port || config.port;
         this.opt = opt || config;
         this.app = express();
+        this.router = express.Router();
     }
 
-    async setup() {
-        // 3rd party middleware
-        this.app.use(() => middleware.external);
-        console.log("External miuddleware setup done");
-        return await true;
-    }
-
-    async listen() {
-        return await new Promise((resolve, reject) => {
-            this.app.listen(this.port, this.host, (err) => {
-                err ? reject(err) : (this.setup(), resolve({ host: this.host, port: this.port }));
-            });
+    moduleLoad(moduleName) {
+        return fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
+            _module.length ? require(path.join(__dirname, moduleName, _module)) : false;
+            console.log("Modules loaded successfully");
         });
+    }
+
+    middlewareSetup() {
+        // 3rd party middleware
+        middleware.external();
+        middleware.custom();
+        console.log("External middleware setup done");
+    }
+
+    routerSetup() {
+        this.app.get('/', (req, res) => {
+            res.send("Home page")
+        });
+    }
+
+    listen(cb) {
+        this.middlewareSetup();
+        this.moduleLoad('modules');
+        this.routerSetup();
+        return this.app.listen(this.port, this.host, cb({ port: this.port, host: this.host }));
     }
 }
 
