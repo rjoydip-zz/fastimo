@@ -4,7 +4,7 @@ class Routes extends App {
     constructor() {
         super()
         this.router.get('', (req, res, next) => {
-            res.send("Users");
+            res.send("Users API");
             next();
         });
         return this.router;

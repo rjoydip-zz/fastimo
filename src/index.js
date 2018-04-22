@@ -19,7 +19,7 @@ class Server extends App {
     setup() {
         this.moduleLoad('modules');
         this.middlewareSetup();
-        // this.routerSetup();
+        this.routerSetup();
     }
 
     middlewareSetup() {
@@ -29,8 +29,7 @@ class Server extends App {
     }
 
     routerSetup() {
-        const Routes = require('./routes');
-        const routes = new Routes;
+        const routes = require('./routes');
         routes.init(this.app);
     }
 

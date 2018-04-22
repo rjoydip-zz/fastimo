@@ -5,15 +5,10 @@ class Routes extends App {
         super();
     }
 
-    init(app) {  
-        app.get('/', (req, res) => {
-            res.send("Root page")
-        });
-        app.get('/home', (req, res) => {
-            res.send("Home page")
-        });
+    init(app) {
+        app.use('/users', require('./modules/users').routes());
+        app.use('/api/users', require('./modules/users').api());
     }
 }
 
-
-module.exports = Routes;
+module.exports = new Routes();
