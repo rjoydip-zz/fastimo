@@ -1,13 +1,9 @@
-const express = require('express');
+const App = require('@core/app');
 
-class User {
+class User extends App {
     constructor() {
-        this.app = express();
-        this.setup();
-    }
-
-    setup() {
-        console.log("user route setup");
+        super();
+        this.logger.log("user route setup");
         this.app.get('/users', (req, res) => {
             res.send("Users");
         });

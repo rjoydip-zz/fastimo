@@ -1,45 +1,42 @@
 const fs = require('fs');
 const path = require('path');
-const express = require('express');
 
-// const DB = require('./db');
-const middleware = require('./middleware');
-const config = require('./config');
+const App = require('@core/app');
 
-class Server {
-    constructor(host, port, opt) {
-        this.host = host || config.host;
-        this.port = port || config.port;
-        this.opt = opt || config;
-        this.app = express();
-        this.router = express.Router();
+class Server extends App {
+    constructor(opt) {
+        super();
+        this.opt = opt || this.config;
     }
 
     moduleLoad(moduleName) {
         return fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
             _module.length ? require(path.join(__dirname, moduleName, _module)) : false;
-            console.log("Modules loaded successfully");
+            this.logger.log("Modules loaded successfully");
         });
+    }
+
+    setup() {
+        this.moduleLoad('modules');
+        this.middlewareSetup();
+        // this.routerSetup();
     }
 
     middlewareSetup() {
-        // 3rd party middleware
-        middleware.external();
-        middleware.custom();
-        console.log("External middleware setup done");
+        this.middleware.external(this.app, this.config);
+        this.middleware.custom(this.app, this.config);
+        this.logger.log("External middleware setup done");
     }
 
     routerSetup() {
-        this.app.get('/', (req, res) => {
-            res.send("Home page")
-        });
+        const Routes = require('./routes');
+        const routes = new Routes;
+        routes.init(this.app);
     }
 
     listen(cb) {
-        this.middlewareSetup();
-        this.moduleLoad('modules');
-        this.routerSetup();
-        return this.app.listen(this.port, this.host, cb({ port: this.port, host: this.host }));
+        this.setup();
+        return this.app.listen(this.config.port, this.config.host, cb({ port: this.config.port, host: this.config.host }));
     }
 }
 

@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.3",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
     "cors": "^2.7.1",
+    "express": "^4.16.3",
+    "mixin": "^0.2.0",
     "morgan": "^1.8.0",
     "resource-router-middleware": "^0.6.0"
   },
   "devDependencies": {
-    "@core/controller": "file:core/controller",
-    "@core/logger": "file:core/logger",
+    "@core/app": "file:src/core/app",
+    "@core/config": "file:src/core/config",
+    "@core/logger": "file:src/core/logger",
+    "@core/middleware": "file:src/core/middleware",
     "dotenv": "^5.0.1",
     "eslint": "^3.1.1",
     "nodemon": "^1.9.2"
@@ -25,13 +28,14 @@
   "eslintConfig": {
     "extends": "eslint:recommended",
     "parserOptions": {
-      "ecmaVersion": 8,
+      "ecmaVersion": 7,
       "sourceType": "module"
     },
     "env": {
       "node": true
     },
     "rules": {
+      "no-undef": 0,
       "no-console": 0,
       "no-unused-vars": 1
     }

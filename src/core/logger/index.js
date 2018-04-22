@@ -1,7 +1,7 @@
 class Logger {
     constructor() {}
-    
-    info(message) {
+
+    log(message) {
         console.log(message)
     }
 
