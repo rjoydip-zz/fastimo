@@ -7,15 +7,13 @@ class Server extends App {
     constructor(opt) {
         super();
         this.opt = opt || this.config;
-        this.app.set('views', this.app.get('views'));
     }
 
     moduleLoad(moduleName) {
+        this.app.set('views', path.join(__dirname, moduleName));
+
         fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
-            _module.length ? (
-                require(path.join(__dirname, moduleName, _module)),
-                this.app.set('views', [path.join(__dirname, moduleName, _module, 'views')]) 
-            ): false;
+            _module.length ? require(path.join(__dirname, moduleName, _module)) : false;
         });
         this.logger.log("Modules loaded successfully");
     }
