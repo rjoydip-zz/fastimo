@@ -1,5 +1,3 @@
-const path = require('path');
-
 const App = require('@core/app');
 
 class User extends App {

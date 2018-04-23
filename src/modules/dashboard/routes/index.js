@@ -3,8 +3,7 @@ const App = require('@core/app');
 class Routes extends App {
     constructor() {
         super()
-        this.router.get('', (req, res, next) => {
-            console.log("views", this.app.get('views'));          
+        this.router.get('', (req, res, next) => {       
             res.render("dashboard/views/dashboard", {
                 user: 'Dashboard'
             });
