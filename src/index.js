@@ -10,12 +10,11 @@ class Server extends App {
     }
 
     moduleLoad(moduleName) {
-        this.app.set('views', path.join(__dirname, moduleName));
-
         fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
-            _module.length ? require(path.join(__dirname, moduleName, _module)) : false;
+            _module.length ? (require(path.join(__dirname, moduleName, _module)), this.app.set('views', [this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')])) : false;
         });
         this.logger.log("Modules loaded successfully");
+        console.log("After", this.app.get('views'));
     }
 
     setup() {
