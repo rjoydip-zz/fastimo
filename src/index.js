@@ -10,6 +10,8 @@ class Server extends App {
     }
 
     moduleLoad(moduleName) {
+        // TODO:
+        // Make express ejs view set array flat
         fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
             _module.length ? (require(path.join(__dirname, moduleName, _module)), this.app.set('views', [this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')])) : false;
         });
