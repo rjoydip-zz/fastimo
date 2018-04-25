@@ -4,7 +4,7 @@ class Routes extends App {
     constructor() {
         super()
         this.router.get('', (req, res, next) => {       
-            res.render("dashboard/views/dashboard", {
+            res.render("dashboard", {
                 user: 'Dashboard'
             });
             next();

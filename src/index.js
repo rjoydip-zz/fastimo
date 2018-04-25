@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const _ = require('lodash');
 
 const App = require('@core/app');
 
@@ -10,13 +11,13 @@ class Server extends App {
     }
 
     moduleLoad(moduleName) {
-        // TODO:
-        // Make express ejs view set array flat
         fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
-            _module.length ? (require(path.join(__dirname, moduleName, _module)), this.app.set('views', [this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')])) : false;
+            _module.length ? (
+                require(path.join(__dirname, moduleName, _module)), 
+                this.app.set('views', _.flatten([this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')]))
+            ) : false;
         });
         this.logger.log("Modules loaded successfully");
-        console.log("After", this.app.get('views'));
     }
 
     setup() {
