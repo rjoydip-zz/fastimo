@@ -17,17 +17,17 @@ class Middleware {
 	}
 
 	custom(app, config) { 
-		app.use(function(req, res) {
-			if(req.path.match(config.apiPrefix)) {
-				res.send({
-					message: 'API not found'
-				});
-			} else {
-				res.marko(require('../views/error.marko'), {
-					message: 'Opps !'
-				});
-			}
-		});
+		// app.use(function(req, res) {
+		// 	if(req.path.match(config.apiPrefix)) {
+		// 		res.send({
+		// 			message: 'API not found'
+		// 		});
+		// 	} else {
+		// 		res.marko(require('../views/error.marko'), {
+		// 			message: 'Opps !'
+		// 		});
+		// 	}
+		// });
 	}
 }
 
