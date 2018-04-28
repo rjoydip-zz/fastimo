@@ -1,4 +1,8 @@
-const Server = require("./src");
+require('marko/node-require'); // Allow Node.js to require and load `.marko` files
+
+global.moment = require('moment');
+
+const Server = require("./src/server");
 
 // server instance
 const server = new Server();

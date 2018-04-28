@@ -1,6 +1,6 @@
-# node-microservice-architecture
+# node-project-structure-1
 
-> Node microservice architecture
+> Node project structure
 
 ## Installation
 
@@ -11,8 +11,8 @@ To install this application, you'll need [Node.js](https://nodejs.org/en/downloa
 You'll need [Git](https://git-scm.com) to run the project from source. From your command line:
 
 ```bash
-$ git clone https://github.com/rjoydip/node-microservice-architecture.git 
-$ cd node-microservice-architecture
+$ git clone https://github.com/rjoydip/node-project-structure-1.git 
+$ cd node-project-structure-1
 $ npm install
 $ npm start
 ```

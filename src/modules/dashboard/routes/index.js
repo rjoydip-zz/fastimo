@@ -4,8 +4,8 @@ class Routes extends App {
     constructor() {
         super()
         this.router.get('', (req, res, next) => {       
-            res.render("dashboard", {
-                user: 'Dashboard'
+            res.marko(require('../views/dashboard.marko'), {
+                title: 'Dashboard'
             });
             next();
         });

@@ -13,8 +13,9 @@ class Server extends App {
     moduleLoad(moduleName) {
         fs.readdirSync(path.join(__dirname, moduleName)).forEach(_module => {
             _module.length ? (
-                require(path.join(__dirname, moduleName, _module)), 
-                this.app.set('views', _.flatten([this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')]))
+                require(path.join(__dirname, moduleName, _module))
+                // do not need to set view for marko
+                // ,this.app.set('views', _.flatten([this.app.get('views'), path.join(__dirname, moduleName, _module, 'views')]))
             ) : false;
         });
         this.logger.log("Modules loaded successfully");
@@ -38,8 +39,8 @@ class Server extends App {
     }
 
     listen(cb) {
-        this.setup();
-        return this.app.listen(this.config.port, this.config.host, cb({ port: this.config.port, host: this.config.host }));
+        return this.app.listen(this.config.port, this.config.host, 
+            this.setup(), cb({ port: this.config.port, host: this.config.host }));
     }
 }
 
