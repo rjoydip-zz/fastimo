@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "rules": {
+    "semicolon": [true, "always"],
+    "indent": [true, "spaces", 4],
+    "no-consecutive-blank-lines": true,
+    "no-trailing-whitespace": true,
+    "curly": true,
+    "prefer-const": true,
+    "no-empty-interface": true,
+    "no-var-keyword": true
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**",
+      "**/*.d.ts"
+    ]
+  }
+}

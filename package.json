@@ -2,16 +2,22 @@
   "name": "fastlib",
   "version": "0.0.1",
   "description": "Faster library for scalable architecture",
-  "main": "index.js",
+  "main": "./build/index.js",
   "devDependencies": {
-    "eslint": "^3.1.1",
+    "concurrently": "^4.0.1",
     "jest": "^23.5.0",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "tsc": "^1.20150623.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
   },
   "scripts": {
-    "start": "./node_modules/.bin/nodemon index.js",
-    "lint": "eslint . --ignore-path .gitignore --cache",
-    "fix:lint": "npm run lint -- --fix",
+    "start": "./node_modules/.bin/concurrently \"npm run app:watch\" \"npm run dev:watch\" \"npm run node:watch\" ",
+    "app:watch": "./node_modules/.bin/tsc --p ./tsconfig.app.json -w",
+    "dev:watch": "./node_modules/.bin/tsc --p ./tsconfig.dev.json -w",
+    "node:watch": "./node_modules/.bin/nodemon ./build/examples/index.js",
+    "app:build": "./node_modules/.bin/tsc --p ./tsconfig.app.json",
+    "lint": "tslint -c tslint.json **/*.ts",
     "precommit": "npm run lint",
     "test": "./node_modules/.bin/jest --coverage",
     "prepush": "npm run lint && npm run test"
@@ -28,6 +34,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^6.0.73",
+    "fastify": "^1.11.1",
     "husky": "^1.0.0-rc.13"
   },
   "readme": "README.md",

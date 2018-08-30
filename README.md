@@ -17,7 +17,7 @@
 To install this application, you'll need [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-$ git clone https://github.com/rjoydip/nofastlib.git 
+$ git clone https://github.com/rjoydip/fastlib.git 
 $ cd fastlib && npm install
 ```
 

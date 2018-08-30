@@ -1,0 +1,24 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": false,
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "lib": [
+      "es2015"
+    ],
+    "removeComments": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+  ],
+}
