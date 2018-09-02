@@ -1,48 +1,40 @@
 {
-  "name": "node-project-structure-1",
-  "version": "1.0.0",
-  "description": "",
+  "name": "fastlib",
+  "version": "0.0.1",
+  "description": "Faster library for scalable architecture",
   "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.13.3",
-    "compression": "^1.5.2",
-    "cors": "^2.7.1",
-    "express": "^4.16.3",
-    "lodash": "^4.17.10",
-    "marko": "^4.9.7",
-    "mixin": "^0.2.0",
-    "moment": "^2.22.1",
-    "morgan": "^1.8.0"
-  },
   "devDependencies": {
-    "@core/app": "file:src/core/app",
-    "@core/config": "file:src/core/config",
-    "@core/logger": "file:src/core/logger",
-    "@core/middleware": "file:src/core/middleware",
-    "dotenv": "^5.0.1",
     "eslint": "^3.1.1",
+    "jest": "^23.5.0",
     "nodemon": "^1.9.2"
   },
   "scripts": {
-    "start": "node_modules/.bin/nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./node_modules/.bin/nodemon index.js",
+    "lint": "eslint . --ignore-path .gitignore --cache",
+    "fix:lint": "npm run lint -- --fix",
+    "precommit": "npm run lint",
+    "test": "./node_modules/.bin/jest --coverage",
+    "prepush": "npm run lint && npm run test"
   },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "parserOptions": {
-      "ecmaVersion": 7,
-      "sourceType": "module"
-    },
-    "env": {
-      "node": true
-    },
-    "rules": {
-      "no-undef": 0,
-      "no-console": 0,
-      "no-unused-vars": 1
+  "keywords": [
+    "faster",
+    "library",
+    "scalable"
+  ],
+  "author": {
+    "name": "Joydip Roy",
+    "email": "joydipand@gmail.com",
+    "url": "http://github.com/rjoydip"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "husky": "^1.0.0-rc.13"
+  },
+  "readme": "README.md",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "pre-push": "npm run prepush"
     }
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

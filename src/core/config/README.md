@@ -1,3 +1,0 @@
-# Config module
-
-Application config.
