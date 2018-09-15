@@ -284,7 +284,5 @@ module.exports = {
         "yield-star-spacing": "error",
         "yoda": "off"
     },
-    "plugins": [
-      'react'
-    ],
+    "plugins": [],
 };

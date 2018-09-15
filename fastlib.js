@@ -1,14 +1,12 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["render"] }] */
+
 const f = require('fastify')
 
+const Component = require('./lib/utils')
 const opt = {
   logger: true,
   PORT: 3000
 }
-
-class Component {
-  render() {}
-}
-
 class Application extends Component {
   constructor(options) {
     super()
@@ -24,12 +22,14 @@ class Application extends Component {
   }
 
   init() {
-    return this.app.listen(opt.PORT).then((err, address) => {
+    return this.app.listen(opt.PORT).then((_, address) => {
       this.app.log(`Server is running ${address}`)
     })
   }
 
-  render() {}
+  render() {
+    return ('Hello')
+  }
 }
 
 module.exports = new Application
