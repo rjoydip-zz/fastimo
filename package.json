@@ -1,40 +1,41 @@
 {
   "name": "fastlib",
-  "version": "0.0.1",
-  "description": "Faster and scalable architecture",
-  "main": "fastlib.js",
+  "version": "1.0.0",
+  "description": "",
+  "private": false,
   "scripts": {
-    "start": "npm run node:watch",
-    "node:watch": "./node_modules/.bin/nodemon fastlib.js",
-    "lint": "./node_modules/.bin/eslint **/*.js --ignore-path .gitignore"
+    "add": "./node_modules/.bin/lerna add",
+    "boot": "./node_modules/.bin/lerna bootstrap",
+    "lerna:test": "./node_modules/.bin/lerna run test",
+    "clean": "./node_modules/.bin/lerna clean",
+    "ls": "./node_modules/.bin/lerna ls",
+    "link": "./node_modules/.bin/lerna link",
+    "global": "npm uninstall -g fastlib && npm install -g .",
+    "cleanup": "npm run clean && rm -rf node_modules/ && npm install && npm run boot",
+    "lint": "eslint . --ignore-path .eslintignore --cache",
+    "test": "cross-env LC_ALL=en_US.UTF-8 NODE_ENV=test jest",
+    "g:pkg": "node scripts/index.js g -p"
   },
-  "keywords": [
-    "faster",
-    "scalable",
-    "architecture"
-  ],
-  "author": {
-    "name": "Joydip Roy",
-    "email": "joydipand@gmail.com",
-    "url": "https://github.com/rjoydip"
+  "bin": {
+    "fastlib": "packages/cli/index.js"
   },
-  "license": "MIT",
   "dependencies": {
-    "fastify": "^1.11.1"
+    "common-tags": "^1.8.0",
+    "shelljs": "^0.8.2",
+    "yargs-parser": "^10.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0",
-    "babel-eslint": "^9.0.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.0.1",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "nodemon": "^1.18.4"
-  },
-  "readme": "README.md"
+    "eslint-plugin-prettier": "^2.6.2",
+    "jest": "^23.6.0",
+    "jest-circus": "^23.6.0",
+    "lerna": "^3.4.0",
+    "prettier": "^1.14.2"
+  }
 }

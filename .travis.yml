@@ -1,12 +1,14 @@
 language: node_js
 
 node_js:
-  - 10
-  - 8
-  - 6
+  - '10'
+  - '8'
+  - '6'
 
 script:
+  - npm run boot
   - npm run lint
+  - npm test
 
 git:
   depth: 5

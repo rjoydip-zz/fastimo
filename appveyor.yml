@@ -11,9 +11,13 @@ install:
 matrix:
   fast_finish: true
 
+build: off
+
 shallow_clone: true
 
 test_script:
   - node --version
   - npm --version
-  - npm lint
+  - npm run boot
+  - npm run lint
+  - npm test

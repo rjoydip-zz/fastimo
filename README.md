@@ -2,22 +2,46 @@
 
 [![Build Status](https://travis-ci.org/rjoydip/fastlib.svg?branch=master)](https://travis-ci.org/rjoydip/fastlib)
 [![Build status](https://ci.appveyor.com/api/projects/status/qe5x7i3ift8q7rkv/branch/master?svg=true)](https://ci.appveyor.com/project/rjoydip/fastlib/branch/master)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/badge/license-MIT-blue.svg)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastlib/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-> Faster and scalable architecture
+> 
 
-## Installation
+## Install
 
-To install this application, you'll need [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-$ git clone https://github.com/rjoydip/fastlib.git 
+```
+$ git clone https://github.com/rjoydip/fastlib.git
 $ cd fastlib
 $ npm install
 ```
 
-## API
+## Scripts
+
+Some defaults `npm scripts`. Eg: `add`, `boot`, `lerna:test`, `clean`, `ls`, `link`, `global`, `clenup`, `lint`, `test`
+
+- [add](https://github.com/lerna/lerna/tree/master/commands/add#readme) Add a dependency to matched packages
+- [boot](https://github.com/lerna/lerna/tree/master/commands/bootstrap#readme) Link local packages together and install remaining package dependencies
+- [lerna:test](https://github.com/lerna/lerna/tree/master/commands/run#readme) Run an npm script in each package that contains that script
+- [clean](https://github.com/lerna/lerna/tree/master/commands/clean#readme) Remove the node_modules directory from all packages
+- [ls](https://github.com/lerna/lerna/tree/master/commands/list#readme) List local packages
+- [link](https://github.com/lerna/lerna/tree/master/commands/link#readme) Symlink together all packages that are dependencies of each other
+- [global](#scripts) Install `fastlib` CLI in local machine
+- [cleanup](#scripts) Remove the `node_modules` directory from all packages and re-install them
+- [test](#scripts) Used [Jest](https://jestjs.io/) for testing
+- [lint](#scripts) Used [prettier](https://prettier.io/) and [eslint](https://eslint.org/) for linting utility
+
+## CLI
+
+```
+$ npm run global
+```
+
+```
+$ fastlib
+Welcome to fastlib
+```
 
 ## License
 

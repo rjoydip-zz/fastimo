@@ -1,0 +1,41 @@
+{
+  "lerna": "3.4.0",
+  "version": "1.0.0",
+  "changelog": {
+    "repo": "fastlib",
+    "cacheDir": ".changelog",
+    "labels": {
+      "PR: Spec Compliancy :eyeglasses:": ":eyeglasses: Spec Compliancy",
+      "PR: Breaking Change :boom:": ":boom: Breaking Change",
+      "PR: New Feature :rocket:": ":rocket: New Feature",
+      "PR: Bug Fix :bug:": ":bug: Bug Fix",
+      "PR: Polish :nail_care:": ":nail_care: Polish",
+      "PR: Docs :memo:": ":memo: Documentation",
+      "PR: Internal :house:": ":house: Internal"
+    }
+  },
+  "command": {
+    "create": {
+      "homepage": "https://github.com/rjoydip/fastlib",
+      "license": "MIT"
+    },
+    "publish": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "gitRemote": "upstream",
+      "message": "chore(release): publish %s"
+    }
+  },
+  "ignoreChanges": [
+    "**/__fixtures__/**",
+    "**/__tests__/**",
+    "**/*.md"
+  ],
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "npm"
+}
