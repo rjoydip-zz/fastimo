@@ -14,7 +14,7 @@
     "cleanup": "npm run clean && rm -rf node_modules/ && npm install && npm run boot",
     "lint": "eslint . --ignore-path .eslintignore --cache",
     "test": "cross-env LC_ALL=en_US.UTF-8 NODE_ENV=test jest",
-    "g:pkg": "node scripts/index.js g -p"
+    "generate": "node scripts/index.js g -p"
   },
   "bin": {
     "fastlib": "packages/cli/index.js"
