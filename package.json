@@ -1,7 +1,7 @@
 {
   "name": "fastlib",
   "version": "1.0.0",
-  "description": "Monorepo node project structure with fastify",
+  "description": "Monorepo based node project structure with fastify",
   "private": false,
   "scripts": {
     "lerna": "./node_modules/.bin/lerna",

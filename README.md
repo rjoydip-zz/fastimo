@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastlib/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-> Monorepo node project structure with fastify.
+> Monorepo based node project structure with fastify.
 
 ## Install
 
@@ -41,6 +41,22 @@ $ npm run global
 ```
 $ fastlib
 Welcome to fastlib
+```
+
+## Benchmark
+
+```sh
+$ autocannon -d 1 -c 100 http:/
+/localhost:3000
+Running 1s test @ http://localhost:3000
+100 connections
+
+Stat         Avg    Stdev Max
+Latency (ms) 38.53  7.25  83.09
+Req/Sec      2537   0     2537
+Bytes/Sec    418 kB 0 B   416 kB
+
+3k requests in 1s, 416 kB read
 ```
 
 ## TODO
