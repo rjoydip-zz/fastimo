@@ -46,8 +46,7 @@ Welcome to fastlib
 ## Benchmark
 
 ```sh
-$ autocannon -d 1 -c 100 http:/
-/localhost:3000
+$ autocannon -d 1 -c 100 http://localhost:3000
 Running 1s test @ http://localhost:3000
 100 connections
 
