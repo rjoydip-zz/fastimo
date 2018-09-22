@@ -1,15 +1,13 @@
 {
-  "name": "@fastlib/cli",
+  "name": "users",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified in cli modules\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@fastlib/core": "^1.0.0"
-  }
+  "dependencies": { }
 }

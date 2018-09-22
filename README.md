@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastlib/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-> 
+> Monorepo node project structure with fastify.
 
 ## Install
 
@@ -15,22 +15,22 @@
 $ git clone https://github.com/rjoydip/fastlib.git
 $ cd fastlib
 $ npm install
+$ npm run setup
 ```
 
 ## Scripts
 
-Some defaults `npm scripts`. Eg: `add`, `boot`, `lerna:test`, `clean`, `ls`, `link`, `global`, `clenup`, `lint`, `test`
+Some defaults `npm scripts`. Eg: `lerna`, `help`, `test`, `lint`.
 
-- [add](https://github.com/lerna/lerna/tree/master/commands/add#readme) Add a dependency to matched packages
-- [boot](https://github.com/lerna/lerna/tree/master/commands/bootstrap#readme) Link local packages together and install remaining package dependencies
-- [lerna:test](https://github.com/lerna/lerna/tree/master/commands/run#readme) Run an npm script in each package that contains that script
-- [clean](https://github.com/lerna/lerna/tree/master/commands/clean#readme) Remove the node_modules directory from all packages
-- [ls](https://github.com/lerna/lerna/tree/master/commands/list#readme) List local packages
-- [link](https://github.com/lerna/lerna/tree/master/commands/link#readme) Symlink together all packages that are dependencies of each other
-- [global](#scripts) Install `fastlib` CLI in local machine
-- [cleanup](#scripts) Remove the `node_modules` directory from all packages and re-install them
+- [lerna](https://lernajs.io/) `npm run lerna`
+- [lerna help](#scripts) `npm run help`
 - [test](#scripts) Used [Jest](https://jestjs.io/) for testing
 - [lint](#scripts) Used [prettier](https://prettier.io/) and [eslint](https://eslint.org/) for linting utility
+
+> Generate `package` and `modules` by below following commands.
+
+- `package`: `npm run gen:pkg <PACKAGE_NAME>`
+- `module`: `npm run gen:mod <MODULE_NAME>`
 
 ## CLI
 
@@ -42,6 +42,11 @@ $ npm run global
 $ fastlib
 Welcome to fastlib
 ```
+
+## TODO
+
+- test
+- cli
 
 ## License
 

@@ -3,6 +3,6 @@
 
 "use strict";
 
-const welcome = require("@fastlib/core");
+const welcome = require("@fastlib/app");
 
 process.stdout.write(welcome());

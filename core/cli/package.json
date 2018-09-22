@@ -1,15 +1,15 @@
 {
-  "name": "@fastlib/core",
+  "name": "@fastlib/cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified in core modules\""
+    "test": "echo \"Error: no test specified in cli modules\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-
+    "@fastlib/app": "^1.0.0"
   }
 }

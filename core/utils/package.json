@@ -1,5 +1,5 @@
 {
-  "name": "config",
+  "name": "@fastlib/utils",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "fast-glob": "^2.2.2",
+    "fastify-plugin": "^1.2.1",
+    "js-yaml": "^3.12.0"
+  }
 }

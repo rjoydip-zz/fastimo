@@ -1,0 +1,4 @@
+name: 'user'
+server:
+environment:
+  - NODE_ENV=PROD

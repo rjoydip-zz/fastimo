@@ -1,0 +1,9 @@
+{
+  "name": "foo",
+  "server": {
+
+  },
+  "environment": [
+    "NODE_ENV=DEV"
+  ]
+}
