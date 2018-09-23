@@ -13,7 +13,7 @@
     "test": "cross-env NODE_ENV=test jest",
     "gen:pkg": "node scripts/index.js g -p",
     "gen:mod": "node scripts/index.js g -m",
-    "example": "NODE_ENV=dev node core/fastlib"
+    "run:app": "cross-env NODE_ENV=dev node core/fastlib"
   },
   "bin": {
     "fastlib": "packages/cli/index.js"

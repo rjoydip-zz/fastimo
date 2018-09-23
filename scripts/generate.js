@@ -19,12 +19,11 @@ const makePkgName = (type, name) => {
   return name;
 };
 
-const makeJSContent = (type, name) => {
+const makeContent = (type, name) => {
   if (type === "mod") {
     return html`
-
       module.exports = async (fastify, options, next) => {
-        fastify.get("/${name}", async (req, res) => res.send("Welcome users"));
+        fastify.get("/${name}", async (req, res) => res.send("Welcome ${name}"));
         next();
       };
     `;
@@ -42,9 +41,9 @@ const generate = (_dir, name, type = "pkg") => {
       const viewPath = path.join($dir, name, "views");
       shell.mkdir(viewPath); // create a view directory
       fs.writeFileSync(
-        `${viewPath}\\index.jsx`,
+        `${viewPath}\\index.ejs`,
         html`
-        export default () => <div>Welcome ${name}</div>;
+        <div>Welcome index</div>
 
         `
       );
@@ -73,7 +72,8 @@ const generate = (_dir, name, type = "pkg") => {
       `${path.join($dir, name)}\\index.js`,
       html`
       "use strict";
-      ${makeJSContent(type, name)}
+
+      ${makeContent(type, name)}
     `,
       "utf-8"
     );

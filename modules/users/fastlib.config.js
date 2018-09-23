@@ -6,5 +6,5 @@ const moduleName = "users";
 
 module.exports = {
   name: moduleName,
-  view: join(__dirname, moduleName, "views"),
+  view: join(__dirname, "views"),
 };

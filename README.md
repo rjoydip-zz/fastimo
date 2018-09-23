@@ -15,22 +15,50 @@
 $ git clone https://github.com/rjoydip/fastlib.git
 $ cd fastlib
 $ npm install
-$ npm run setup
 ```
+
+## Setup
+
+Run following command for setup.
+
+```
+$ npm run setup
+$ npm run example
+```
+
+## Features
+
+- Scalable and Monorepo based project structure.
+- Fully working on [fastify](https://www.fastify.io/) ecosystem.
+- Extend functionalities with [fastify](https://www.fastify.io/docs/latest/Plugins/) plugins.
+- Add functionality to the Fastify instance with [decorate](https://www.fastify.io/docs/latest/Decorators/) API.
+- [Jest](https://jestjs.io/) for testing.
+- [prettier](https://prettier.io/) and [eslint](https://eslint.org/) for linting utility
+- [lerna](https://lernajs.io/) for splitting up large codebases.
+- [EJS]() default templating.
 
 ## Scripts
 
-Some defaults `npm scripts`. Eg: `lerna`, `help`, `test`, `lint`.
+- [lerna](#scripts) ***>>*** `npm run lerna` - Execute lerna locally
+- [lerna help](#scripts) ***>>*** `npm run help` - Show lerna help
+- [test](#scripts) ***>>*** `npm test` or `npm run test` - Test your code
+- [lint](#scripts) ***>>*** `npm run lint` - Cheeck linting and prettier your code
+- [clean](#scripts) ***>>*** `npm run clean` - Cleanup project
+- [global](#scripts) ***>>*** `npm run global`- Install project CLI globally
+- [fastlib](#scripts) ***>>*** `npm run fastlib` - Run your project
 
-- [lerna](https://lernajs.io/) `npm run lerna`
-- [lerna help](#scripts) `npm run help`
-- [test](#scripts) Used [Jest](https://jestjs.io/) for testing
-- [lint](#scripts) Used [prettier](https://prettier.io/) and [eslint](https://eslint.org/) for linting utility
-
-> Generate `package` and `modules` by below following commands.
+## Generate `package` and `module`
 
 - `package`: `npm run gen:pkg <PACKAGE_NAME>`
 - `module`: `npm run gen:mod <MODULE_NAME>`
+
+## Configuration
+
+There are three types of configuration format supported.
+
+- `fastlib.config.js`
+- `fastlib.config.json`
+- `fastlib.config.yml`
 
 ## CLI
 
@@ -51,11 +79,11 @@ Running 1s test @ http://localhost:3000
 100 connections
 
 Stat         Avg    Stdev Max
-Latency (ms) 38.53  7.25  83.09
-Req/Sec      2537   0     2537
-Bytes/Sec    418 kB 0 B   416 kB
+Latency (ms) 81.37  9.81  142.72
+Req/Sec      1190   0     1190
+Bytes/Sec    176 kB 0 B   177 kB
 
-3k requests in 1s, 416 kB read
+1k requests in 1s, 177 kB read
 ```
 
 ## TODO

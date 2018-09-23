@@ -21,13 +21,14 @@ function render(fastify, opts, done) {
         return res.send(err);
       }
 
-      const compiled = ejs.render(html, data, opt);
+      const template = ejs.compile(html, opt);
+      const compiled = template(data);
 
       if ($callback) {
         return callback(compiled);
       }
 
-      return res.send(compiled);
+      return res.header("Content-Type", "text/html").send(compiled);
     });
   }
 
