@@ -9,9 +9,9 @@ module.exports = fp(
   (fastify, opts, done) => {
     const $modulesDir = findUp.sync("modules");
     fastify
-      .register(module.require("@fastlib/utils"))
-      .register(module.require("@fastlib/config"))
-      .register(module.require("@fastlib/render"));
+      .register(module.require("@fastimo/utils"))
+      .register(module.require("@fastimo/config"))
+      .register(module.require("@fastimo/render"));
     const entries = fg.sync(["**/index.js", "!**/node_modules/**", "!**/.git/**", "!**/views/**"], {
       cwd: $modulesDir,
     });

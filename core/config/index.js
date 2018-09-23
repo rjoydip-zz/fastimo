@@ -22,9 +22,9 @@ module.exports = fp(
     const $modulesDir = findUp.sync("modules");
     const entries = fg.sync(
       [
-        "**/fastlib.config.js",
-        "**/fastlib.config.yml",
-        "**/fastlib.config.json",
+        "**/fastimo.config.js",
+        "**/fastimo.config.yml",
+        "**/fastimo.config.json",
         "!**/node_modules/**",
         "!**/.git/**",
       ],

@@ -1,5 +1,5 @@
 {
-  "name": "fastlib",
+  "name": "fastimo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastlib/register": "^1.0.0",
+    "@fastimo/register": "^1.0.0",
     "fastify": "^1.11.2"
   }
 }

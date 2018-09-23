@@ -1,5 +1,5 @@
 {
-  "name": "@fastlib/register",
+  "name": "@fastimo/register",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastlib/config": "^1.0.0",
-    "@fastlib/render": "^1.0.0",
-    "@fastlib/utils": "^1.0.0",
+    "@fastimo/config": "^1.0.0",
+    "@fastimo/render": "^1.0.0",
+    "@fastimo/utils": "^1.0.0",
     "ejs": "^2.6.1",
     "fast-glob": "^2.2.2",
     "fastify-plugin": "^1.2.1",

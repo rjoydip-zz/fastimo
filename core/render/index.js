@@ -16,7 +16,7 @@ function render(fastify, opts, done) {
       $callback = opt;
     }
 
-    readFile(join(fastify.config.modules[mod].view, `${mod}.ejs`), charset, (err, html) => {
+    readFile(join(fastify.config.modules[mod].view, `index.ejs`), charset, (err, html) => {
       if (err) {
         return res.send(err);
       }

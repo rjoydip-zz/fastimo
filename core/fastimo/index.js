@@ -7,7 +7,7 @@ const fastify = require("fastify")({
 const { exit } = process;
 const start = async () => {
   try {
-    await fastify.register(module.require("@fastlib/register"));
+    await fastify.register(module.require("@fastimo/register"));
     await fastify.ready();
     await fastify.listen(3000);
   } catch (err) {

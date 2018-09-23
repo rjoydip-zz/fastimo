@@ -1,10 +1,10 @@
-# fastlib
+# fastimo
 
-[![Build Status](https://travis-ci.org/rjoydip/fastlib.svg?branch=master)](https://travis-ci.org/rjoydip/fastlib)
-[![Build status](https://ci.appveyor.com/api/projects/status/qe5x7i3ift8q7rkv/branch/master?svg=true)](https://ci.appveyor.com/project/rjoydip/fastlib/branch/master)
+[![Build Status](https://travis-ci.org/rjoydip/fastimo.svg?branch=master)](https://travis-ci.org/rjoydip/fastimo)
+[![Build status](https://ci.appveyor.com/api/projects/status/qe5x7i3ift8q7rkv/branch/master?svg=true)](https://ci.appveyor.com/project/rjoydip/fastimo/branch/master)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastlib/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastimo/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
 > Scalable monorepo based node project structure with fastify.
@@ -12,8 +12,8 @@
 ## Install
 
 ```
-$ git clone https://github.com/rjoydip/fastlib.git
-$ cd fastlib
+$ git clone https://github.com/rjoydip/fastimo.git
+$ cd fastimo
 $ npm install
 ```
 
@@ -23,7 +23,7 @@ Run following command for setup.
 
 ```
 $ npm run setup
-$ npm run example
+$ npm run app
 ```
 
 ## Features
@@ -45,7 +45,7 @@ $ npm run example
 - [lint](#scripts) ***>>*** `npm run lint` - Cheeck linting and prettier your code
 - [clean](#scripts) ***>>*** `npm run clean` - Cleanup project
 - [global](#scripts) ***>>*** `npm run global`- Install project CLI globally
-- [fastlib](#scripts) ***>>*** `npm run fastlib` - Run your project
+- [app](#scripts) ***>>*** `npm run app` - Run your project
 
 ## Generate `package` and `module`
 
@@ -56,9 +56,9 @@ $ npm run example
 
 There are three types of configuration format supported.
 
-- `fastlib.config.js`
-- `fastlib.config.json`
-- `fastlib.config.yml`
+- `fastimo.config.js`
+- `fastimo.config.json`
+- `fastimo.config.yml`
 
 ## CLI
 
@@ -67,8 +67,8 @@ $ npm run global
 ```
 
 ```
-$ fastlib
-Welcome to fastlib
+$ fastimo
+Welcome to fastimo
 ```
 
 ## Benchmark

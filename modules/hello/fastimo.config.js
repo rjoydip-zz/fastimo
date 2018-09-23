@@ -2,7 +2,7 @@
 
 const { join } = require("path");
 
-const moduleName = "users";
+const moduleName = "hello";
 
 module.exports = {
   name: moduleName,

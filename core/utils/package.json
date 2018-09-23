@@ -1,5 +1,5 @@
 {
-  "name": "@fastlib/utils",
+  "name": "@fastimo/utils",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

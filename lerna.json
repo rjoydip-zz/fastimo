@@ -2,11 +2,11 @@
   "lerna": "3.4.0",
   "version": "1.0.0",
   "changelog": {
-    "repo": "fastlib"
+    "repo": "fastimo"
   },
   "command": {
     "create": {
-      "homepage": "https://github.com/rjoydip/fastlib",
+      "homepage": "https://github.com/rjoydip/fastimo",
       "license": "MIT"
     },
     "publish": {
