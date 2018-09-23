@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://github.com/rjoydip/fastlib/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-> Sclable monorepo based node project structure with fastify.
+> Scalable monorepo based node project structure with fastify.
 
 ## Install
 
