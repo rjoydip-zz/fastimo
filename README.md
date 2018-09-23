@@ -113,7 +113,7 @@ fastimo
 |     ├── package.json
 |     └── __tests__
 |        └── index.spec.js
-├── core
+├── modules
 |  ├── hello
 |  |  ├── fastimo.config.js
 |  |  ├── index.js
