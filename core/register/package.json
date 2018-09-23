@@ -1,18 +1,21 @@
 {
-  "name": "@fastlib/app",
+  "name": "@fastlib/register",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'Error: no test specified' && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@fastlib/config": "^1.0.0",
+    "@fastlib/render": "^1.0.0",
     "@fastlib/utils": "^1.0.0",
+    "ejs": "^2.6.1",
     "fast-glob": "^2.2.2",
-    "fastify": "^1.11.2"
+    "fastify-plugin": "^1.2.1",
+    "find-up": "^3.0.0"
   }
 }

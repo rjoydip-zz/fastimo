@@ -1,24 +1,27 @@
 {
   "name": "fastlib",
   "version": "1.0.0",
-  "description": "Monorepo based node project structure with fastify",
+  "description": "Sclable monorepo based node project structure with fastify",
   "private": false,
   "scripts": {
-    "lerna": "./node_modules/.bin/lerna",
-    "help": "./node_modules/.bin/lerna --help",
+    "lerna": "lerna",
+    "help": "lerna --help",
     "global": "npm uninstall -g fastlib && npm install -g .",
     "clean": "npm run lerna clean && rm -rf node_modules/ && npm install && npm run lerna bootstrap",
     "setup": "npm run lerna clean && npm install && npm run lerna bootstrap && npm run lerna link",
     "lint": "eslint . --ignore-path .eslintignore --cache",
     "test": "cross-env NODE_ENV=test jest",
     "gen:pkg": "node scripts/index.js g -p",
-    "gen:mod": "node scripts/index.js g -m"
+    "gen:mod": "node scripts/index.js g -m",
+    "example": "NODE_ENV=dev node core/fastlib"
   },
   "bin": {
     "fastlib": "packages/cli/index.js"
   },
   "dependencies": {
     "common-tags": "^1.8.0",
+    "g": "^2.0.1",
+    "nodemon": "^1.18.4",
     "shelljs": "^0.8.2",
     "yargs-parser": "^10.1.0"
   },
@@ -38,5 +41,17 @@
   },
   "engines": {
     "node": ">=7.6.0"
-  }
+  },
+  "main": "jest.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjoydip/fastlib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjoydip/fastlib/issues"
+  },
+  "homepage": "https://github.com/rjoydip/fastlib#readme"
 }

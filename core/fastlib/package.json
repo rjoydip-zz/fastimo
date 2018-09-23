@@ -1,5 +1,5 @@
 {
-  "name": "@fastlib/repl",
+  "name": "fastlib",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "shelljs": "^0.8.2"
+    "@fastlib/register": "^1.0.0",
+    "fastify": "^1.11.2"
   }
 }

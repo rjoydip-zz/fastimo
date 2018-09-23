@@ -1,5 +1,5 @@
 {
-  "name": "users",
+  "name": "@fastlib/render",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": { }
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "fastify-plugin": "^1.2.1"
+  }
 }

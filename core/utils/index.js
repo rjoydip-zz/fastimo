@@ -16,6 +16,7 @@ const slash = input => {
 
 const isYml = file => file.match(".yml") !== null;
 const isJSON = file => file.match(".json") !== null;
+const isJS = file => file.match(".js") !== null;
 const hasKey = (obj, key = "") => Object.prototype.hasOwnProperty.call(obj, key);
 const getContent = file => fs.readFileSync(file, "utf-8");
 const getDirname = p =>
@@ -35,6 +36,7 @@ const configParse = file => {
 };
 
 const utils = {
+  isJS,
   isYml,
   hasKey,
   isJSON,
@@ -50,7 +52,6 @@ module.exports = fp(
     next();
   },
   {
-    fatify: ">=0.39.0",
     name: module.require("./package").name,
   }
 );

@@ -3,6 +3,4 @@
 
 "use strict";
 
-const welcome = require("@fastlib/app");
-
-process.stdout.write(welcome());
+process.stdout.write("Welcome to fastlib");
