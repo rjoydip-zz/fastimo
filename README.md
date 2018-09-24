@@ -71,6 +71,59 @@ $ fastimo
 Welcome to fastimo
 ```
 
+## Directory Structure
+
+```sh
+fastimo
+├── appveyor.yml
+├── core
+|  ├── cli
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  ├── config
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  ├── fastimo
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  ├── register
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  ├── render
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  └── utils
+|     ├── index.js
+|     ├── package-lock.json
+|     ├── package.json
+|     └── __tests__
+|        └── index.spec.js
+├── jest.config.js
+├── lerna.json
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── readme.md
+└── scripts
+   ├── generate.js
+   └── index.js
+```
+
 ## Benchmark
 
 ```sh
