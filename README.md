@@ -73,7 +73,7 @@ Welcome to fastimo
 
 ## Directory Structure
 
-```sh
+```
 fastimo
 ├── appveyor.yml
 ├── core
@@ -85,8 +85,8 @@ fastimo
 |  |     └── index.spec.js
 |  ├── config
 |  |  ├── index.js
-|  |  ├── package-lock.json
 |  |  ├── package.json
+|  |  ├── package-lock.json
 |  |  └── __tests__
 |  |     └── index.spec.js
 |  ├── fastimo
@@ -112,6 +112,24 @@ fastimo
 |     ├── package-lock.json
 |     ├── package.json
 |     └── __tests__
+|        └── index.spec.js
+├── core
+|  ├── hello
+|  |  ├── fastimo.config.js
+|  |  ├── index.js
+|  |  ├── package-lock.json
+|  |  ├── package.json
+|  |  ├── views
+|  |  |  └── index.ejs
+|  |  └── __tests__
+|  |     └── index.spec.js
+|  └── index
+|    ├── fastimo.config.js
+|    ├── index.js
+|    ├── package.json
+|    ├── views
+|    |  └── index.ejs
+|    └── __tests__
 |        └── index.spec.js
 ├── jest.config.js
 ├── lerna.json
