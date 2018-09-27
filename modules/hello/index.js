@@ -2,7 +2,8 @@
 
 module.exports = async (fastify, options, next) => {
   fastify.get("/hello", async (req, res) => {
-    fastify.render(res, "hello", { name: req.query.name }, {});
+    // res.send(req.query);
+    fastify.render(res, "hello", req.query, {});
   });
   next();
 };

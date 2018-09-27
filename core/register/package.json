@@ -14,8 +14,6 @@
     "@fastimo/render": "^1.0.0",
     "@fastimo/utils": "^1.0.0",
     "ejs": "^2.6.1",
-    "fast-glob": "^2.2.2",
-    "fastify-plugin": "^1.2.1",
-    "find-up": "^3.0.0"
+    "fastify-plugin": "^1.2.1"
   }
 }

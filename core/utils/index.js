@@ -4,7 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const yml = require("js-yaml");
 const fp = require("fastify-plugin");
+const findUp = require("find-up");
+const fg = require("fast-glob");
 
+const modulesDir = findUp.sync("modules");
 const slash = input => {
   const isExtendedLengthPath = /^\\\\\?\\/.test(input);
   const hasNonAscii = /[^\u0000-\u0080]+/.test(input); // eslint-disable-line no-control-regex
@@ -35,6 +38,17 @@ const configParse = file => {
   return content;
 };
 
+const ignore = ["!**/node_modules/**", "!**/.git/**"];
+
+const registerEntries = fg.sync(["**/index.js", "!**/views/**", ...ignore], {
+  cwd: modulesDir,
+});
+const configEntries = fg.sync(
+  ["**/fastimo.config.js", "**/fastimo.config.yml", "**/fastimo.config.json", ...ignore],
+  {
+    cwd: modulesDir,
+  }
+);
 const utils = {
   isJS,
   isYml,
@@ -44,6 +58,9 @@ const utils = {
   getDirname,
   getContent,
   configParse,
+  modulesDir,
+  registerEntries,
+  configEntries,
 };
 
 module.exports = fp(

@@ -12,6 +12,7 @@
   "dependencies": {
     "fast-glob": "^2.2.2",
     "fastify-plugin": "^1.2.1",
+    "find-up": "^3.0.0",
     "js-yaml": "^3.12.0"
   }
 }

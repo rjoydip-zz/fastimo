@@ -2,8 +2,6 @@
 
 const path = require("path");
 const yml = require("js-yaml");
-const fg = require("fast-glob");
-const findUp = require("find-up");
 const fp = require("fastify-plugin");
 
 module.exports = fp(
@@ -19,33 +17,20 @@ module.exports = fp(
       modules: {},
     };
 
-    const $modulesDir = findUp.sync("modules");
-    const entries = fg.sync(
-      [
-        "**/fastimo.config.js",
-        "**/fastimo.config.yml",
-        "**/fastimo.config.json",
-        "!**/node_modules/**",
-        "!**/.git/**",
-      ],
-      {
-        cwd: $modulesDir,
-      }
-    );
-    entries.forEach(filename => {
-      const dirName = utils.getDirname(path.join($modulesDir, filename));
+    fastify.utils.configEntries.forEach(filename => {
+      const dirName = utils.getDirname(path.join(fastify.utils.modulesDir, filename));
       let content = {};
 
       if (utils.isYml(filename)) {
-        content = yml.safeLoad(utils.getContent(path.join($modulesDir, filename)));
+        content = yml.safeLoad(utils.getContent(path.join(fastify.utils.modulesDir, filename)));
       }
 
       if (utils.isJSON(filename)) {
-        content = JSON.parse(utils.getContent(path.join($modulesDir, filename)));
+        content = JSON.parse(utils.getContent(path.join(fastify.utils.modulesDir, filename)));
       }
 
       if (utils.isJS(filename)) {
-        content = module.require(path.join($modulesDir, filename));
+        content = module.require(path.join(fastify.utils.modulesDir, filename));
       }
 
       if (content && !utils.hasKey(content, "name")) {
