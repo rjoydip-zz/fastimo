@@ -1,7 +1,5 @@
 "use strict";
 
-const path = require("path");
-const yml = require("js-yaml");
 const fp = require("fastify-plugin");
 
 module.exports = fp(
@@ -17,26 +15,8 @@ module.exports = fp(
       modules: {},
     };
 
-    fastify.utils.configEntries.forEach(filename => {
-      const dirName = utils.getDirname(path.join(fastify.utils.modulesDir, filename));
-      let content = {};
-
-      if (utils.isYml(filename)) {
-        content = yml.safeLoad(utils.getContent(path.join(fastify.utils.modulesDir, filename)));
-      }
-
-      if (utils.isJSON(filename)) {
-        content = JSON.parse(utils.getContent(path.join(fastify.utils.modulesDir, filename)));
-      }
-
-      if (utils.isJS(filename)) {
-        content = module.require(path.join(fastify.utils.modulesDir, filename));
-      }
-
-      if (content && !utils.hasKey(content, "name")) {
-        content.name = dirName;
-      }
-
+    utils.configEntries.forEach(filename => {
+      const content = utils.configParse(filename);
       data.modules[content.name] = content;
     });
 

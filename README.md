@@ -115,7 +115,7 @@ fastimo
 |        └── index.spec.js
 ├── modules
 |  ├── hello
-|  |  ├── fastimo.config.js
+|  |  ├── config.js
 |  |  ├── index.js
 |  |  ├── package-lock.json
 |  |  ├── package.json
@@ -124,7 +124,7 @@ fastimo
 |  |  └── __tests__
 |  |     └── index.spec.js
 |  └── index
-|    ├── fastimo.config.js
+|    ├── config.js
 |    ├── index.js
 |    ├── package.json
 |    ├── views
@@ -144,6 +144,8 @@ fastimo
 
 ## Benchmark
 
+### Root benchmark
+
 ```sh
 $ autocannon -d 1 -c 100 http://localhost:3000
 Running 1s test @ http://localhost:3000
@@ -154,8 +156,27 @@ Latency (ms) 81.37  9.81  142.72
 Req/Sec      1190   0     1190
 Bytes/Sec    176 kB 0 B   177 kB
 
-1k requests in 1s, 177 kB read
+2k requests in 1s, 177 kB read
 ```
+
+> Note: Fastimo root serves 3k(max)/2k(avg) request in 1 sec. (Response type is simple string)
+
+### View benchmark
+
+```sh
+$ autocannon -d 1 -c 100 http://localhost:3000/hello?name=fastimo
+Running 1s test @ http://localhost:3000/hello?name=fastimo
+100 connections
+
+Stat         Avg    Stdev Max
+Latency (ms) 108.06 13.94 188.45
+Req/Sec      880    0     880
+Bytes/Sec    125 kB 0 B   124 kB
+
+880 requests in 1s, 124 kB read
+```
+
+> Note: Fastimo view serves 1k(max)/780-900(avg) request in 1 sec. (Response type is ejs view)
 
 ## TODO
 

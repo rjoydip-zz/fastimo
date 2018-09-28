@@ -26,14 +26,19 @@ const getDirname = p =>
   slash(path.dirname(p))
     .split("/")
     .pop();
-const configParse = file => {
+const configParse = filename => {
   let content = {};
-  if (isYml(file)) {
-    content = yml.safeLoad(getContent(file));
+
+  if (isYml(filename)) {
+    content = yml.safeLoad(getContent(path.join(modulesDir, filename)));
   }
 
-  if (isJSON(file)) {
-    content = JSON.parse(getContent(file));
+  if (isJSON(filename)) {
+    content = JSON.parse(getContent(path.join(modulesDir, filename)));
+  }
+
+  if (isJS(filename)) {
+    content = module.require(path.join(modulesDir, filename));
   }
   return content;
 };
@@ -43,12 +48,9 @@ const ignore = ["!**/node_modules/**", "!**/.git/**"];
 const registerEntries = fg.sync(["**/index.js", "!**/views/**", ...ignore], {
   cwd: modulesDir,
 });
-const configEntries = fg.sync(
-  ["**/fastimo.config.js", "**/fastimo.config.yml", "**/fastimo.config.json", ...ignore],
-  {
-    cwd: modulesDir,
-  }
-);
+const configEntries = fg.sync(["**/config.js", "**/config.yml", "**/config.json", ...ignore], {
+  cwd: modulesDir,
+});
 const utils = {
   isJS,
   isYml,
