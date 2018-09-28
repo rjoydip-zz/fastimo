@@ -6,19 +6,21 @@ module.exports = fp(
   (fastify, opts, done) => {
     const { utils } = fastify;
 
-    const data = {
-      core: {},
-      modules: {},
-    };
+    const data = {};
 
     utils.configEntries.forEach(filename => {
       const content = utils.configParse(utils.rootDir, filename);
-      data.core = content;
+      Object.assign(data, content);
+    });
+
+    utils.coreEntries.forEach(filename => {
+      const content = utils.configParse(utils.coreDir, filename);
+      Object.assign(data, { core: { [content.name]: content } });
     });
 
     utils.modulesEntries.forEach(filename => {
       const content = utils.configParse(utils.modulesDir, filename);
-      data.modules[content.name] = content;
+      Object.assign(data, { modules: { [content.name]: content } });
     });
 
     fastify.decorate("config", data);

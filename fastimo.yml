@@ -1,6 +1,7 @@
 name: fastimo
-host: '127.0.0.1'
+host: 127.0.0.1
+port: 8080
 db:
   mongo:
     repo: mongo
-    ports: 27017
+    port: 27017

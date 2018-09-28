@@ -10,8 +10,10 @@ const start = async () => {
   try {
     await fastify.register(module.require("@fastimo/register"));
     await fastify.ready();
-    await fastify.listen(fastify.config.core.PORT || 3000);
-    console.log(fastify.config);
+    const PORT = fastify.config.port || 3000;
+    const HOST = fastify.config.host || "localhost";
+    await fastify.listen(PORT, HOST);
+    fastify.log.info(`${fastify.config.name} server is running on ${HOST}:${PORT}`);
   } catch (err) {
     fastify.log.error(err);
     exit(1);

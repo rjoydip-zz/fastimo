@@ -17,6 +17,7 @@ const slash = input => {
 };
 const pkgUp = n => findUp.sync(n);
 const coreDir = pkgUp("core");
+const pkg = pkgUp("package.json");
 const modulesDir = pkgUp("modules");
 const rootDir = dirname(pkgUp("package.json"));
 const isYml = file => file.match(".yml") !== null;
@@ -47,17 +48,20 @@ const configParse = (_dir, _name) => {
 const ignore = ["!**/node_modules/**", "!**/.git/**"];
 const generteConfigFile = n => ["js", "yml", "json"].map(i => `**/${n}.${i}`);
 
-const configEntries = fg.sync([...generteConfigFile("fastimo"), ...ignore], {
-  cwd: rootDir,
-});
-
 const registerEntries = fg.sync(["**/index.js", "!**/views/**", ...ignore], {
   cwd: modulesDir,
 });
-const modulesEntries = fg.sync([...generteConfigFile("config"), ...ignore], {
+const configEntries = fg.sync([...generteConfigFile(pkg.name || "global"), ...ignore], {
+  cwd: rootDir,
+});
+const coreEntries = fg.sync([...generteConfigFile(pkg.name || "global"), ...ignore], {
+  cwd: coreDir,
+});
+const modulesEntries = fg.sync([...generteConfigFile(pkg.config ? pkg.config.name : "config"), ...ignore], {
   cwd: modulesDir,
 });
 const utils = {
+  pkg,
   isJS,
   isYml,
   hasKey,
@@ -69,6 +73,7 @@ const utils = {
   coreDir,
   rootDir,
   modulesDir,
+  coreEntries,
   registerEntries,
   modulesEntries,
   configEntries,
