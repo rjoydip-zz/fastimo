@@ -5,22 +5,23 @@ const fp = require("fastify-plugin");
 module.exports = fp(
   (fastify, opts, done) => {
     const { utils } = fastify;
-    const confKey = opts.confKey || "config";
 
     const data = {
-      core: {
-        PORT: 3000,
-        env: process.env.NODE_ENV || "dev",
-      },
+      core: {},
       modules: {},
     };
 
     utils.configEntries.forEach(filename => {
-      const content = utils.configParse(filename);
+      const content = utils.configParse(utils.rootDir, filename);
+      data.core = content;
+    });
+
+    utils.modulesEntries.forEach(filename => {
+      const content = utils.configParse(utils.modulesDir, filename);
       data.modules[content.name] = content;
     });
 
-    fastify.decorate(confKey, data);
+    fastify.decorate("config", data);
 
     done();
   },

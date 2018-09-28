@@ -6,25 +6,28 @@
   "scripts": {
     "lerna": "lerna",
     "help": "lerna --help",
-    "global": "npm uninstall -g fastimo && npm install -g .",
-    "clean": "npm run lerna clean && rm -rf node_modules/ && npm install && npm run lerna bootstrap",
-    "setup": "npm run lerna clean && npm install && npm run lerna bootstrap && npm run lerna link",
+    "global": "concurrently \"npm uninstall -g fastimo \" && \" npm install -g .\"",
+    "clean": "concurrently \"npm run lerna clean\" && \"rm -rf node_modules/\" && \"npm install\" && \"npm run lerna bootstrap\"",
+    "setup": "concurrently \"npm run lerna clean\" && \"npm install\" && \"npm run lerna bootstrap\" && \"npm run lerna link\"",
     "lint": "eslint . --ignore-path .eslintignore --cache",
     "test": "cross-env NODE_ENV=test jest",
     "gen:pkg": "node scripts/index.js g -p",
     "gen:mod": "node scripts/index.js g -m",
-    "app": "cross-env NODE_ENV=dev node core/fastimo"
+    "app:dev": "cross-env NODE_ENV=dev nodemon core/fastimo",
+    "app:prod": "cross-env NODE_ENV=production node core/fastimo",
+    "benchmark": "./node_modules/.bin/autocannon -c 100 -d 5 -p 10 localhost:3000"
   },
   "bin": {
     "fastimo": "packages/cli/index.js"
   },
   "dependencies": {
     "common-tags": "^1.8.0",
-    "nodemon": "^1.18.4",
     "shelljs": "^0.8.2",
     "yargs-parser": "^10.1.0"
   },
   "devDependencies": {
+    "autocannon": "^3.0.0",
+    "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -36,6 +39,7 @@
     "jest": "^23.6.0",
     "jest-circus": "^23.6.0",
     "lerna": "^3.4.0",
+    "nodemon": "^1.18.4",
     "prettier": "^1.14.2"
   },
   "engines": {

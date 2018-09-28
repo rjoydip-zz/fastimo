@@ -1,6 +1,7 @@
 "use strict";
 
 const { exit, env } = process;
+
 const fastify = require("fastify")({
   logger: env.NODE_ENV !== "production",
 });
@@ -10,6 +11,7 @@ const start = async () => {
     await fastify.register(module.require("@fastimo/register"));
     await fastify.ready();
     await fastify.listen(fastify.config.core.PORT || 3000);
+    console.log(fastify.config);
   } catch (err) {
     fastify.log.error(err);
     exit(1);

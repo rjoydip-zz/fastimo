@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@fastimo/register": "^1.0.0",
-    "fastify": "^1.11.2"
+    "fastify": "^1.12.1"
   }
 }

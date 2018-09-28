@@ -1,0 +1,6 @@
+name: fastimo
+host: '127.0.0.1'
+db:
+  mongo:
+    repo: mongo
+    ports: 27017

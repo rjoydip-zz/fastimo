@@ -144,39 +144,50 @@ fastimo
 
 ## Benchmark
 
-### Root benchmark
+***options:***
 
-```sh
-$ autocannon -d 1 -c 100 http://localhost:3000
-Running 1s test @ http://localhost:3000
-100 connections
-
-Stat         Avg    Stdev Max
-Latency (ms) 81.37  9.81  142.72
-Req/Sec      1190   0     1190
-Bytes/Sec    176 kB 0 B   177 kB
-
-2k requests in 1s, 177 kB read
+```
+-c/--connections NUM
+  The number of concurrent connections to use. default: 10.
+-p/--pipelining NUM
+  The number of pipelined requests to use. default: 1.
+-d/--duration SEC
+  The number of seconds to run the autocannnon. default: 10.
 ```
 
-> Note: Fastimo root serves 3k(max)/2k(avg) request in 1 sec. (Response type is simple string)
+### Root benchmark
+
+```
+$ autocannon -c 100 -d 5 -p 10 localhost:3000
+Running 5s test @ http://localhost:3000
+100 connections with 10 pipelining factor
+
+Stat         Avg     Stdev   Max
+Latency (ms) 3.67    11.4    122.88
+Req/Sec      26606.4 2711.19 29236
+Bytes/Sec    4.25 MB 417 kB  4.65 MB
+
+135k requests in 5s, 21.2 MB read
+```
+
+> Note: Fastimo root serves 135k(max)/110-131k(avg) request in 5sec. (Response type is simple string)
 
 ### View benchmark
 
-```sh
-$ autocannon -d 1 -c 100 http://localhost:3000/hello?name=fastimo
-Running 1s test @ http://localhost:3000/hello?name=fastimo
-100 connections
+```
+$ autocannon -c 100 -d 5 -p 10 localhost:3000/hello?name=fastimo
+Running 5s test @ http://localhost:3000/hello?name=fastimo
+100 connections with 10 pipelining factor
 
-Stat         Avg    Stdev Max
-Latency (ms) 108.06 13.94 188.45
-Req/Sec      880    0     880
-Bytes/Sec    125 kB 0 B   124 kB
+Stat         Avg    Stdev   Max
+Latency (ms) 18.2   54.81   242.32
+Req/Sec      5371.6 415.82  5980
+Bytes/Sec    757 kB 53.2 kB 843 kB
 
-880 requests in 1s, 124 kB read
+28k requests in 5s, 3.79 MB read
 ```
 
-> Note: Fastimo view serves 1k(max)/780-900(avg) request in 1 sec. (Response type is ejs view)
+> Note: Fastimo view serves 28k(max)/23-27k(avg) request in 5sec. (Response type is ejs view)
 
 ## TODO
 
